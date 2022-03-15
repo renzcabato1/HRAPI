@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('get-employees-all',"EmployeeController@view_employees");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
