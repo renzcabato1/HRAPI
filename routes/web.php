@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('get-employees-all',"EmployeeController@view_employees");
+// Route::get('get-employees-all',"EmployeeController@view_employees");
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::post('register', 'API\RegisterController@register');
+Route::middleware('auth:api')->group( function () {
+    // Route::get('employees', 'API\EmployeeController@employees');
+	Route::resource('employees', 'API\EmployeeController');
+});

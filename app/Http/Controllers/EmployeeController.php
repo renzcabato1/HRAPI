@@ -9,7 +9,7 @@ class EmployeeController extends Controller
     //
     public function view_employees()
     {
-        $employees = EmployeeProfile::get();
+        $employees = EmployeeProfile::with('approver_info')->get();
         return $employees;
     }
     
