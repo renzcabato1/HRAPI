@@ -19,8 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::post('register', 'API\RegisterController@register');
 Route::middleware('auth:api')->group( function () {
-    // Route::get('employees', 'API\EmployeeController@employees');
 	Route::resource('employees', 'API\EmployeeController');
+    Route::resource('companies', 'API\CompanyController');
+    Route::resource('departments', 'API\DepartmentController');
+    Route::resource('getAttendance', 'API\AttendanceController');
 });
